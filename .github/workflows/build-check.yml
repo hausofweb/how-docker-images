@@ -2,8 +2,6 @@ name: Build Check
 
 on:
   pull_request:
-    paths:
-      - "**/Dockerfile"
 
 jobs:
   build:
