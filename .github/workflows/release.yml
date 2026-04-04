@@ -24,7 +24,7 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@v1
         with:
-          app-id: ${{ secrets.TOKEN_APP_ID }}
+          app-id: ${{ vars.TOKEN_APP_ID }}
           private-key: ${{ secrets.TOKEN_APP_PRIVATE_KEY }}
 
       - uses: googleapis/release-please-action@v4
@@ -86,7 +86,7 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@v1
         with:
-          app-id: ${{ secrets.TOKEN_APP_ID }}
+          app-id: ${{ vars.TOKEN_APP_ID }}
           private-key: ${{ secrets.TOKEN_APP_PRIVATE_KEY }}
 
       - uses: actions/checkout@v4
