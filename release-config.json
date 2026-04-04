@@ -1,0 +1,10 @@
+{
+  "packages": {
+    "actions-runner": {
+      "component": "actions-runner",
+      "include-component-in-tag": true,
+      "include-v-in-tag": false,
+      "tag-separator": "@"
+    }
+  }
+}

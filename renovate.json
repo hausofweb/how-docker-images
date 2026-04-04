@@ -1,0 +1,43 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchManagers": ["dockerfile", "regex"],
+      "commitMessagePrefix": "chore(deps):",
+      "automerge": false
+    },
+    {
+      "description": "Automerge patch and digest bumps for base images",
+      "matchManagers": ["dockerfile"],
+      "matchUpdateTypes": ["patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr"
+    }
+  ],
+  "regexManagers": [
+    {
+      "description": "Node.js major version",
+      "fileMatch": ["^[^/]+/Dockerfile$"],
+      "matchStrings": ["ARG NODE_MAJOR=(?<currentValue>\\d+)"],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node-version",
+      "versioningTemplate": "node"
+    },
+    {
+      "description": "pnpm version",
+      "fileMatch": ["^[^/]+/Dockerfile$"],
+      "matchStrings": ["ARG PNPM_VERSION=(?<currentValue>[\\d.]+)"],
+      "depNameTemplate": "pnpm",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "description": "AWS CLI version",
+      "fileMatch": ["^[^/]+/Dockerfile$"],
+      "matchStrings": ["ARG AWS_CLI_VERSION=(?<currentValue>[\\d.]+)"],
+      "depNameTemplate": "aws/aws-cli",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}

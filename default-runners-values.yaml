@@ -1,0 +1,16 @@
+githubConfigSecret: pre-defined-secret
+githubConfigUrl: https://github.com/hausofweb
+namespaceOverride: "how-runners-arc"
+controllerServiceAccount:
+  namespace: arc-systems
+  name: arc-gha-rs-controller
+
+containerMode:
+  type: "dind"
+
+template:
+  spec:
+    containers:
+      - name: runner
+        image: ghcr.io/hausofweb/actions-runner:latest
+        imagePullPolicy: Always
