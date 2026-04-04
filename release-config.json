@@ -1,6 +1,7 @@
 {
   "packages": {
     "actions-runner": {
+      "release-type": "simple",
       "component": "actions-runner",
       "include-component-in-tag": true,
       "include-v-in-tag": false,
