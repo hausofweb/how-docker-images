@@ -5,7 +5,8 @@
       "component": "actions-runner",
       "include-component-in-tag": true,
       "include-v-in-tag": false,
-      "tag-separator": "@"
+      "tag-separator": "@",
+      "release-as": "1.0.0"
     }
   }
 }
