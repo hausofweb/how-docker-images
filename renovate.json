@@ -1,10 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": ["config:recommended"],
   "labels": ["dependencies"],
   "packageRules": [
     {
-      "matchManagers": ["dockerfile", "regex"],
+      "matchManagers": ["dockerfile", "custom.regex"],
       "commitMessagePrefix": "chore(deps):",
       "automerge": false
     },
@@ -16,26 +16,29 @@
       "automergeType": "pr"
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "description": "Node.js major version",
-      "fileMatch": ["^[^/]+/Dockerfile$"],
-      "matchStrings": ["ARG NODE_MAJOR=(?<currentValue>\\d+)"],
+      "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
+      "matchStrings": ["ARG NODE_MAJOR=(?<currentValue>\d+)"],
       "depNameTemplate": "node",
       "datasourceTemplate": "node-version",
       "versioningTemplate": "node"
     },
     {
+      "customType": "regex",
       "description": "pnpm version",
-      "fileMatch": ["^[^/]+/Dockerfile$"],
-      "matchStrings": ["ARG PNPM_VERSION=(?<currentValue>[\\d.]+)"],
+      "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
+      "matchStrings": ["ARG PNPM_VERSION=(?<currentValue>[\d.]+)"],
       "depNameTemplate": "pnpm",
       "datasourceTemplate": "npm"
     },
     {
+      "customType": "regex",
       "description": "AWS CLI version",
-      "fileMatch": ["^[^/]+/Dockerfile$"],
-      "matchStrings": ["ARG AWS_CLI_VERSION=(?<currentValue>[\\d.]+)"],
+      "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
+      "matchStrings": ["ARG AWS_CLI_VERSION=(?<currentValue>[\d.]+)"],
       "depNameTemplate": "aws/aws-cli",
       "datasourceTemplate": "github-releases"
     }
