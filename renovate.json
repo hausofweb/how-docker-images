@@ -21,7 +21,7 @@
       "customType": "regex",
       "description": "Node.js major version",
       "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
-      "matchStrings": ["ARG NODE_MAJOR=(?<currentValue>\d+)"],
+      "matchStrings": ["ARG NODE_MAJOR=(?<currentValue>\\d+)"],
       "depNameTemplate": "node",
       "datasourceTemplate": "node-version",
       "versioningTemplate": "node"
@@ -30,7 +30,7 @@
       "customType": "regex",
       "description": "pnpm version",
       "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
-      "matchStrings": ["ARG PNPM_VERSION=(?<currentValue>[\d.]+)"],
+      "matchStrings": ["ARG PNPM_VERSION=(?<currentValue>[\\d.]+)"],
       "depNameTemplate": "pnpm",
       "datasourceTemplate": "npm"
     },
@@ -38,7 +38,7 @@
       "customType": "regex",
       "description": "AWS CLI version",
       "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
-      "matchStrings": ["ARG AWS_CLI_VERSION=(?<currentValue>[\d.]+)"],
+      "matchStrings": ["ARG AWS_CLI_VERSION=(?<currentValue>[\\d.]+)"],
       "depNameTemplate": "aws/aws-cli",
       "datasourceTemplate": "github-releases"
     }
