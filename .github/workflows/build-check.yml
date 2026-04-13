@@ -9,16 +9,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Detect changed image directories
         id: changes
         run: |
           DIRS=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
-            | grep '/Dockerfile$' \
+            | grep 'Dockerfile$' \
             | xargs -I{} dirname {} \
             | sort -u \
             | jq -R . | jq -sc .)
           echo "dirs=${DIRS}" >> $GITHUB_OUTPUT
+          echo "Detected directories: ${DIRS}"
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
