@@ -38,3 +38,4 @@ RUN ARCH=$(uname -m) \
 	&& rm -rf awscliv2.zip aws/
 
 USER runner
+ENTRYPOINT ["/home/runner/run.sh"]
