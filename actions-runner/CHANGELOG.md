@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.0.1...actions-runner@1.0.2) (2026-07-11)
+
+
+### Bug Fixes
+
+* **actions-runner:** pin RUNNER_VERSION to 2.335.1 ([#20](https://github.com/hausofweb/how-docker-images/issues/20)) ([26d56f6](https://github.com/hausofweb/how-docker-images/commit/26d56f6db3ccbd002daef4a1c77aadc1c9b7e486))
+
 ## [1.0.1](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.0.0...actions-runner@1.0.1) (2026-04-13)
 
 
