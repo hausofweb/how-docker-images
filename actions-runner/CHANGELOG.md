@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.0.2...actions-runner@1.1.0) (2026-07-19)
+
+
+### Features
+
+* **Dockerfile:** add GitHub CLI installation to Dockerfile ([#23](https://github.com/hausofweb/how-docker-images/issues/23)) ([cc5c7c6](https://github.com/hausofweb/how-docker-images/commit/cc5c7c6c723327e4ce954638909f2b788f1f9b56))
+
 ## [1.0.2](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.0.1...actions-runner@1.0.2) (2026-07-11)
 
 
