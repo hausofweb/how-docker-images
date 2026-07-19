@@ -2,6 +2,7 @@ ARG RUNNER_VERSION=2.335.1
 ARG NODE_MAJOR=24
 ARG PNPM_VERSION=11.15.0
 ARG AWS_CLI_VERSION=2.22.35
+ARG GH_CLI_VERSION=2.96.0
 
 FROM ghcr.io/actions/actions-runner:${RUNNER_VERSION}
 
@@ -9,6 +10,7 @@ FROM ghcr.io/actions/actions-runner:${RUNNER_VERSION}
 ARG NODE_MAJOR
 ARG PNPM_VERSION
 ARG AWS_CLI_VERSION
+ARG GH_CLI_VERSION
 
 USER root
 
@@ -25,7 +27,7 @@ RUN (type -p wget >/dev/null || (apt-get update && apt-get install -y wget)) \
 	&& mkdir -p -m 755 /etc/apt/sources.list.d \
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 	&& apt-get update \
-	&& apt-get install -y gh \
+	&& apt-get install -y gh=${GH_CLI_VERSION} \
 	&& rm -f $out \
 	&& rm -rf /var/lib/apt/lists/*
 

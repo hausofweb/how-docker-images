@@ -41,6 +41,15 @@
       "matchStrings": ["ARG AWS_CLI_VERSION=(?<currentValue>[\\d.]+)"],
       "depNameTemplate": "aws/aws-cli",
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "GitHub CLI version",
+      "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
+      "matchStrings": ["ARG GH_CLI_VERSION=(?<currentValue>[\\d.]+)"],
+      "depNameTemplate": "cli/cli",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
