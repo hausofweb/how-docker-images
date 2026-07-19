@@ -19,7 +19,7 @@ RUN apt-get update \
 	&& apt-get install -y jq unzip \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN (type -p wget >/dev/null || (apt-get update && apt-get install -y wget)) \
+RUN (command -v wget >/dev/null 2>&1 || (apt-get update && apt-get install -y --no-install-recommends wget)) \
 	&& mkdir -p -m 755 /etc/apt/keyrings \
 	&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
 	&& cat $out | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
@@ -27,7 +27,7 @@ RUN (type -p wget >/dev/null || (apt-get update && apt-get install -y wget)) \
 	&& mkdir -p -m 755 /etc/apt/sources.list.d \
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 	&& apt-get update \
-	&& apt-get install -y gh=${GH_CLI_VERSION} \
+	&& apt-get install -y --no-install-recommends gh=${GH_CLI_VERSION} \
 	&& rm -f $out \
 	&& rm -rf /var/lib/apt/lists/*
 

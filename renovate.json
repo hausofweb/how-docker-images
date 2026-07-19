@@ -49,7 +49,7 @@
       "matchStrings": ["ARG GH_CLI_VERSION=(?<currentValue>[\\d.]+)"],
       "depNameTemplate": "cli/cli",
       "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v(?<version>.*)$"
+      "extractVersionTemplate": "^v?(?<version>.*)$"
     }
   ]
 }
