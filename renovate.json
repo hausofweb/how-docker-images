@@ -9,6 +9,11 @@
       "automerge": false
     },
     {
+      "description": "The GitHub CLI version and its per-arch .deb digests must move together, or the build's SHA-256 check fails",
+      "matchDepNames": ["cli/cli"],
+      "groupName": "GitHub CLI"
+    },
+    {
       "description": "Automerge patch and digest bumps for base images",
       "matchManagers": ["dockerfile"],
       "matchUpdateTypes": ["patch", "digest"],
@@ -44,12 +49,23 @@
     },
     {
       "customType": "regex",
-      "description": "GitHub CLI version",
+      "description": "GitHub CLI version and amd64 .deb SHA-256",
       "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
-      "matchStrings": ["ARG GH_CLI_VERSION=(?<currentValue>[\\d.]+)"],
+      "matchStrings": [
+        "ARG GH_CLI_VERSION=(?<currentValue>v[\\d.]+)\\nARG GH_CLI_SHA256_AMD64=(?<currentDigest>[a-f0-9]{64})"
+      ],
       "depNameTemplate": "cli/cli",
-      "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v?(?<version>.*)$"
+      "datasourceTemplate": "github-release-attachments"
+    },
+    {
+      "customType": "regex",
+      "description": "GitHub CLI version and arm64 .deb SHA-256",
+      "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
+      "matchStrings": [
+        "ARG GH_CLI_VERSION=(?<currentValue>v[\\d.]+)\\nARG GH_CLI_SHA256_AMD64=[a-f0-9]{64}\\nARG GH_CLI_SHA256_ARM64=(?<currentDigest>[a-f0-9]{64})"
+      ],
+      "depNameTemplate": "cli/cli",
+      "datasourceTemplate": "github-release-attachments"
     }
   ]
 }
