@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.3...actions-runner@1.1.4) (2026-11-05)
+
+
+### Bug Fixes
+
+* **deps:** Update Node.js to v26 ([#34](https://github.com/hausofweb/how-docker-images/issues/34)) ([e51d903](https://github.com/hausofweb/how-docker-images/commit/e51d9034ee0ab6ddb5ac0b6d494cbd01d907a3ce))
+
 ## [1.1.3](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.2...actions-runner@1.1.3) (2026-11-05)
 
 
