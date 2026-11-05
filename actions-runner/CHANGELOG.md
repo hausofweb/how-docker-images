@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.1...actions-runner@1.1.2) (2026-11-05)
+
+
+### Bug Fixes
+
+* **actions-runner:** move to runner 2.338.2 and install gh from its release .deb ([#35](https://github.com/hausofweb/how-docker-images/issues/35)) ([a240de5](https://github.com/hausofweb/how-docker-images/commit/a240de5c76a224789b62593cc58e5aaf28dc0daa))
+
 ## [1.1.1](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.0...actions-runner@1.1.1) (2026-08-15)
 
 
