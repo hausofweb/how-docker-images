@@ -1,8 +1,8 @@
-ARG RUNNER_VERSION=2.336.0
+ARG RUNNER_VERSION=2.338.2
 ARG NODE_MAJOR=24
 ARG PNPM_VERSION=11.21.0
 ARG AWS_CLI_VERSION=2.22.35
-ARG GH_CLI_VERSION=2.97.0
+ARG GH_CLI_VERSION=2.103.3
 
 FROM ghcr.io/actions/actions-runner:${RUNNER_VERSION}
 
@@ -19,16 +19,13 @@ RUN apt-get update \
 	&& apt-get install -y jq unzip \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN (command -v wget >/dev/null 2>&1 || (apt-get update && apt-get install -y --no-install-recommends wget)) \
-	&& mkdir -p -m 755 /etc/apt/keyrings \
-	&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-	&& cat $out | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
-	&& chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
-	&& mkdir -p -m 755 /etc/apt/sources.list.d \
-	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+# GitHub CLI from its release .deb, the same source Renovate tracks. The apt repo
+# drops older versions, so pinning `gh=<version>` there broke every build.
+RUN curl -fsSL -o /tmp/gh.deb \
+	"https://github.com/cli/cli/releases/download/v${GH_CLI_VERSION}/gh_${GH_CLI_VERSION}_linux_$(dpkg --print-architecture).deb" \
 	&& apt-get update \
-	&& apt-get install -y --no-install-recommends gh=${GH_CLI_VERSION} \
-	&& rm -f $out \
+	&& apt-get install -y --no-install-recommends /tmp/gh.deb \
+	&& rm -f /tmp/gh.deb \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Node.js
