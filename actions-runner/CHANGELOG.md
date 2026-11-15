@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.6](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.5...actions-runner@1.1.6) (2026-11-15)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency cli/cli to v2.104.0 ([#40](https://github.com/hausofweb/how-docker-images/issues/40)) ([51e9b7d](https://github.com/hausofweb/how-docker-images/commit/51e9b7da619035e5f3ee47773ba8146bba91feb0))
+* **renovate:** Stop gh CLI digest matches from overlapping [HOW-1015] ([#42](https://github.com/hausofweb/how-docker-images/issues/42)) ([4653796](https://github.com/hausofweb/how-docker-images/commit/46537962aa4eb43ccc661dca10bb42559c088d05))
+
 ## [1.1.5](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.4...actions-runner@1.1.5) (2026-11-15)
 
 
