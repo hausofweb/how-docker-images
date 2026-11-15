@@ -49,20 +49,12 @@
     },
     {
       "customType": "regex",
-      "description": "GitHub CLI version and amd64 .deb SHA-256",
+      "description": "GitHub CLI version and per-arch .deb SHA-256s, as non-overlapping matches so each update applies independently",
       "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
       "matchStrings": [
-        "ARG GH_CLI_VERSION=(?<currentValue>v[\\d.]+)\\nARG GH_CLI_SHA256_AMD64=(?<currentDigest>[a-f0-9]{64})"
-      ],
-      "depNameTemplate": "cli/cli",
-      "datasourceTemplate": "github-release-attachments"
-    },
-    {
-      "customType": "regex",
-      "description": "GitHub CLI version and arm64 .deb SHA-256",
-      "managerFilePatterns": ["/^[^/]+/Dockerfile$/"],
-      "matchStrings": [
-        "ARG GH_CLI_VERSION=(?<currentValue>v[\\d.]+)\\nARG GH_CLI_SHA256_AMD64=[a-f0-9]{64}\\nARG GH_CLI_SHA256_ARM64=(?<currentDigest>[a-f0-9]{64})"
+        "ARG GH_CLI_VERSION=(?<currentValue>v[\\d.]+)\\n",
+        "# renovate: cli/cli (?<currentValue>v[\\d.]+) amd64\\nARG GH_CLI_SHA256_AMD64=(?<currentDigest>[a-f0-9]{64})",
+        "# renovate: cli/cli (?<currentValue>v[\\d.]+) arm64\\nARG GH_CLI_SHA256_ARM64=(?<currentDigest>[a-f0-9]{64})"
       ],
       "depNameTemplate": "cli/cli",
       "datasourceTemplate": "github-release-attachments"
