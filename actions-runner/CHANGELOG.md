@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.4...actions-runner@1.1.5) (2026-11-15)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency pnpm to v12.21.0 ([#39](https://github.com/hausofweb/how-docker-images/issues/39)) ([5849f36](https://github.com/hausofweb/how-docker-images/commit/5849f361bf4362431487bf05d87d879eeb546b74))
+
 ## [1.1.4](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.3...actions-runner@1.1.4) (2026-11-05)
 
 
