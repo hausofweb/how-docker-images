@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.8](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.7...actions-runner@1.1.8) (2026-11-25)
+
+
+### Bug Fixes
+
+* **deps:** Update dependency cli/cli to v2.106.0 ([#50](https://github.com/hausofweb/how-docker-images/issues/50)) ([d5bc56c](https://github.com/hausofweb/how-docker-images/commit/d5bc56c9b2f3b09ca4beb3672e2f863cac636ad9))
+
 ## [1.1.7](https://github.com/hausofweb/how-docker-images/compare/actions-runner@1.1.6...actions-runner@1.1.7) (2026-11-25)
 
 
